@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 
+require('./conexion');
+
 express.json();
 app.use(express.urlencoded({ extended: true }));
 
