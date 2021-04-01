@@ -14,4 +14,13 @@ router.post("/", async (req, res) => {
     res.json(servicio);
   });
 
+
+  router.put("/:id", async (req, res) => {
+    
+    await Servicios.update(req.body, {
+        where : {id: req.params.id}
+    });
+    res.json({success: 'Se ha modificado'});
+  });
+
 module.exports = router;
