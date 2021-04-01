@@ -7,20 +7,23 @@ router.get("/", async (req, res) => {
   res.json(servicios);
 });
 
-
 router.post("/", async (req, res) => {
-    
-    const servicio = await Servicios.create(req.body);
-    res.json(servicio);
-  });
+  const servicio = await Servicios.create(req.body);
+  res.json(servicio);
+});
 
-
-  router.put("/:id", async (req, res) => {
-    
-    await Servicios.update(req.body, {
-        where : {id: req.params.id}
-    });
-    res.json({success: 'Se ha modificado'});
+router.put("/:id", async (req, res) => {
+  await Servicios.update(req.body, {
+    where: { id: req.params.id },
   });
+  res.json({ success: "Se ha modificado" });
+});
+
+router.delete("/:id", async (req, res) => {
+  await Servicios.destroy({
+    where: { id: req.params.id },
+  });
+  res.json({ success: "Se ha borrado el servicio" });
+});
 
 module.exports = router;
