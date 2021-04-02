@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const { Servicios } = require("../conexion");
 
 router.get("/", async (req, res) => {
