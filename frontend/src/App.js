@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import clienteAxios from "./config/axios";
+
+//Componentes
+import Servicios from "./Components/Servicios";
+import NuevoServicio from './Components/NuevoServicio'
 
 function App() {
+  //State de la aplicacion
+  const [service, setService] = useState([]);
+
+  useEffect(() => {
+    const consultarAPI = async () => {
+      const {data} = await clienteAxios.get("/api/servicios");
+      setService(data);
+    };
+
+    consultarAPI();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={() => <Servicios service={service}/>} />
+        <Route exact path="/nuevo" component={() => <NuevoServicio/>} />
+      </Switch>
+    </Router>
   );
 }
 

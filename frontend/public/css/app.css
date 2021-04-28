@@ -1,0 +1,54 @@
+body {
+  /*background: linear-gradient(120deg, #313132, #161618);*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: black;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+.titulos {
+  text-align: center;
+  font-size: 1rem;
+}
+
+h1.titulos {
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
+
+.contenedor-servicios {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.lista-servicio {
+  width: 80%;
+  background-color: #ca3311;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 20px;
+
+}
+
+.lista-servicio p,
+.lista-servicio h3 {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-weight: 700;
+}
